@@ -62,7 +62,6 @@
     </div>
     <br><br>
     <button onclick="resetBoard()">Reset</button>
-    <button onclick="endGame()">End Game</button>
     <p id="winner"></p>
     <br>
     <table id="score-table">
@@ -83,14 +82,6 @@
       let scoreO = 0;
       let round = 0;
       const maxRounds = 5;
-
-      // Get the player names from localStorage
-      const xPlayer = localStorage.getItem("xPlayer");
-      const oPlayer = localStorage.getItem("oPlayer");
-
-      // Set the player names in the score table
-      document.getElementById("player-x-name").innerText = xPlayer;
-      document.getElementById("player-o-name").innerText = oPlayer;
 
       // Winning combinations
       const winCombinations = [
@@ -163,20 +154,6 @@
         winner = null;
         document.getElementById("winner").innerText = "";
         round = 0;
-      }
-
-      function endGame() {
-        if (round === maxRounds) {
-          if (scoreX > scoreO) {
-            document.getElementById("winner").innerText = `Player ${xPlayer} wins the game!`;
-          } else if (scoreO > scoreX) {
-            document.getElementById("winner").innerText = `Player ${oPlayer} wins the game!`;
-          } else {
-            document.getElementById("winner").innerText = "It's a tie game!";
-          }
-        } else {
-          document.getElementById("winner").innerText = "The game is not yet finished!";
-        }
       }
     </script>
   </center>
